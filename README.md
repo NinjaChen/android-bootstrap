@@ -1,3 +1,15 @@
+# Ninja
+
+Pick the android-bootstrap as framework, it's powerful, stable and enough.
+
+# Rename package name
+
+1. Remove build dir, to speed up the refactor process.
+2. Rename the packageName in AndroidManifest.xml
+3. Rename the dir(package name) use IDE
+4. (Optional) Rename the applicationId in build.gradle
+
+[Refer in stackoverflow](https://stackoverflow.com/questions/16804093/android-studio-rename-package)
 # Release Notes
 
 ### 2015-10-15

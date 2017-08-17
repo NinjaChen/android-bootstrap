@@ -1,5 +1,5 @@
 <account-authenticator xmlns:android="http://schemas.android.com/apk/res/android"
-    android:accountType="com.androidbootstrap"
-    android:icon="@drawable/icon"
+    android:accountType="com.zeonic.ykt"
+    android:icon="@drawable/ic_logo"
     android:label="@string/app_name"
-    android:smallIcon="@drawable/icon" />
+    android:smallIcon="@drawable/ic_logo" />

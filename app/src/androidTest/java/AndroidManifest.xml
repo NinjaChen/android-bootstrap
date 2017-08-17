@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.donnfelker.android.bootstrap">
+    package="com.zeonic.ykt">
 
     <uses-sdk
         tools:overrideLibrary="android.support.test.uiautomator.v18" />

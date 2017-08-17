@@ -1,8 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <resources>
-
+    <color name="background_selected">#1fb6ed</color>
+    <color name="pure_white">#ffffff</color>
+    <color name="default_background">#f2f2f2</color>
+    <color name="d8grey">#d8d8d8</color>
+    <color name="d9grey">#d9d9d9</color>
+    <!--for login activity-->
     <color name="text">#FCFCFC</color>
+    <color name="text_link">#1fb6ed</color>
+
+
+    <color name="main_background_start">#2E2E2E</color>
+    <color name="main_background_end">#2C2C2C</color>
+
+    <color name="button_background_enabled_start">#1fb6ed</color>
+    <color name="button_background_enabled_end">#1c9ac8</color>
+    <color name="button_background_pressed_start">#f76500</color>
+    <color name="button_background_pressed_end">#fb812c</color>
+
+
+    <color name="edit_text_background_start">#EFF6FF</color>
+    <color name="edit_text_background_end">#FBFDFF</color>
+    <color name="button_background_disabled_start">#7b7b7b</color>
+    <color name="button_background_disabled_end">#646464</color>
+
+    <color name="text_shadow">#000000</color>
+    <color name="color_theme">#ff4e00</color>
+    <color name="line_theme_color">#0076ff</color>
+
+    <color name="nav_button_text_light">#ffffff</color>
+    <color name="nav_button_pressed">#1fb6ed</color>
+    <color name="nav_button_disabled">#646464</color>
+    <color name="nav_button_text_disabled">#464646</color>
+
     <color name="text_light">#999999</color>
     <color name="text_inverted">#FFFFFF</color>
     <color name="text_title">#DFDFDF</color>
@@ -10,7 +41,6 @@
     <color name="pager_selected_text">#FFFFFF</color>
     <color name="pager_background">#F4F4F4</color>
     <color name="pager_background_alternate">#E7E7E7</color>
-    <color name="text_link">#1fb6ed</color>
     <color name="table_text">#484848</color>
     <color name="table_text_inverted">#FFFFFF</color>
     <color name="table_text_light">#A6A6A6</color>
@@ -23,25 +53,14 @@
     <color name="actionbar_background_end">#1A1A1A</color>
     <color name="bootstrap_divider_top">#000000</color>
     <color name="bootstrap_divider_bottom">#5A5A5A</color>
-    <color name="main_background_start">#2E2E2E</color>
-    <color name="main_background_end">#2C2C2C</color>
-    <color name="button_background_enabled_start">#1fb6ed</color>
-    <color name="button_background_enabled_end">#1c9ac8</color>
-    <color name="button_background_pressed_start">#f76500</color>
-    <color name="button_background_pressed_end">#fb812c</color>
-    <color name="edit_text_background_start">#EFF6FF</color>
-    <color name="edit_text_background_end">#FBFDFF</color>
-    <color name="button_background_disabled_start">#7b7b7b</color>
-    <color name="button_background_disabled_end">#646464</color>
-    <color name="text_shadow">#000000</color>
 
-    <color name="background_selected">#1fb6ed</color>
-    <color name="nav_button_text_light">#ffffff</color>
-    <color name="nav_button_pressed">#1fb6ed</color>
-    <color name="nav_button_disabled">#646464</color>
-    <color name="nav_button_text_disabled">#464646</color>
 
     <color name="dark_grey">#1f1f1f</color>
     <color name="navigation_drawer_item_separator">#c2c2c2</color>
+    <color name="black">#000000</color>
+
+    <color name="text_color">#fc3607</color>
+    <color name="transparent_7f">#7fffffff</color>
+    <color name="color_fa">#fafafa</color>
 
 </resources>

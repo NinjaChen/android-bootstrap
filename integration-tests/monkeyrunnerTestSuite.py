@@ -6,13 +6,13 @@ device = MonkeyRunner.waitForConnection()
 
 # Installs the Android package. Notice that this method returns a boolean, so you can test
 # to see if the installation worked.
-device.installPackage('../app/target/android-bootstrap-1.0.apk')
+device.installPackage('../app/target/com-zeonic-ykt-1.0.apk')
 
 # sets a variable with the package's internal name
-package = 'com.donnfelker.android.bootstrap'
+package = 'com.zeonic.ykt'
 
 # sets a variable with the name of an Activity in the package
-activity = 'com.donnfelker.android.bootstrap.ui.CarouselActivity'
+activity = 'com.zeonic.ykt.ui.CarouselActivity'
 
 # sets the name of the component to start
 runComponent = package + '/' + activity

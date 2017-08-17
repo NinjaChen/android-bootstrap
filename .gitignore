@@ -58,3 +58,6 @@ gen-external-apklibs
 
 # Fabric
 fabric.properties
+
+# Playground
+playground
