@@ -78,18 +78,18 @@ android {
 
      signingConfigs {
          // Uncomment and set values and then this will work
-         debug {
-             storeFile file(ANDROID_KEYSTORE_PATH)
-             storePassword ANDROID_STORE_PASS
-             keyAlias ANDROID_KEY_ALIAS
-             keyPassword ANDROID_KEY_PASS
-         }
-         release {
-             storeFile file(ANDROID_KEYSTORE_PATH)
-             storePassword ANDROID_STORE_PASS
-             keyAlias ANDROID_KEY_ALIAS
-             keyPassword ANDROID_KEY_PASS
-         }
+//         debug {
+//             storeFile file(ANDROID_KEYSTORE_PATH)
+//             storePassword ANDROID_STORE_PASS
+//             keyAlias ANDROID_KEY_ALIAS
+//             keyPassword ANDROID_KEY_PASS
+//         }
+//         release {
+//             storeFile file(ANDROID_KEYSTORE_PATH)
+//             storePassword ANDROID_STORE_PASS
+//             keyAlias ANDROID_KEY_ALIAS
+//             keyPassword ANDROID_KEY_PASS
+//         }
      }
 
     lintOptions {
@@ -100,13 +100,13 @@ android {
         debug {
             applicationIdSuffix '.debug'
             minifyEnabled false
-            signingConfig signingConfigs.debug
+//            signingConfig signingConfigs.debug
             // zipAlign false // this is default for debug
         }
         release {
             minifyEnabled true
             proguardFile '../proguard.cfg'
-            signingConfig signingConfigs.release
+//            signingConfig signingConfigs.release
             // zipAlign true // this is default for release
             // testPackageName 'com.zeonic.ykt.tests'
             // testInstrumentationRunner 'android.test.InstrumentationTestRunner' // this is the default
