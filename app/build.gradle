@@ -119,6 +119,19 @@ android {
             jniLibs.srcDirs = ['libs']
         }
     }
+    // auto output release apk to project path
+    applicationVariants.all { variant ->
+        variant.outputs.each { output ->
+//            def flavor = variant.productFlavors[0].name
+            def buildType = variant.variantData.variantConfiguration.buildType.name
+            if (buildType == 'release'){
+                def versionName = variant.versionName
+                def versionCode = variant.versionCode
+                def newApkName = "njc_${versionName}_${versionCode}_${buildType}.apk"
+                output.outputFile = new File("${rootDir}/${newApkName}")
+            }
+        }
+    }	
 }
 
 dependencies {
