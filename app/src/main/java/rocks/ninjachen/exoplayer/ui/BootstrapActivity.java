@@ -9,13 +9,12 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.ResultReceiver;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
-
-import rocks.ninjachen.exoplayer.BootstrapApplication;
-import rocks.ninjachen.exoplayer.R;
-import rocks.ninjachen.exoplayer.core.BootstrapService;
-import rocks.ninjachen.exoplayer.events.FakeEvent;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -25,6 +24,10 @@ import java.util.Calendar;
 import javax.inject.Inject;
 
 import butterknife.ButterKnife;
+import rocks.ninjachen.exoplayer.BootstrapApplication;
+import rocks.ninjachen.exoplayer.R;
+import rocks.ninjachen.exoplayer.core.BootstrapService;
+import rocks.ninjachen.exoplayer.events.FakeEvent;
 import timber.log.Timber;
 
 import static android.content.Intent.FLAG_ACTIVITY_CLEAR_TOP;
@@ -197,6 +200,42 @@ public abstract class BootstrapActivity extends AppCompatActivity {
                 mAlarmIntent);
     }
 
+    public void showSoftKeyboard(final View view) {
+        Timber.e("showSoftKeyboard");
+        view.post(new Runnable() {
+            @Override
+            public void run() {
+                Timber.e("start to view.requestFocus() ");
+
+                if (view.requestFocus()) {
+                    InputMethodManager imm = (InputMethodManager)
+                            getSystemService(Context.INPUT_METHOD_SERVICE);
+                    Timber.e("view.requestFocus() success");
+
+                    imm.showSoftInput(view, InputMethodManager.SHOW_IMPLICIT, new ResultReceiver(new Handler()
+                    ) {
+                        @Override
+                        protected void onReceiveResult(int resultCode, Bundle resultData) {
+                            Timber.e("showSoftKeyboard onReceiveResult:result code " + resultCode);
+                            super.onReceiveResult(resultCode, resultData);
+                        }
+                    });
+                } else {
+                    Timber.e("view.requestFocus() success");
+                }
+            }
+        });
+    }
+
+    // fit with the actionbar height
+    public int getStatusBarHeight() {
+        int result = -1;
+        int resourceId = getResources().getIdentifier("status_bar_height", "dimen", "android");
+        if (resourceId > 0) {
+            result = getResources().getDimensionPixelSize(resourceId);
+        }
+        return result;
+    }
     /**
      * Avoid bug describe in https://stackoverflow.com/a/18306258/1323374
      */
