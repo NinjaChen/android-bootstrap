@@ -1,10 +1,10 @@
 buildscript {
     repositories {
         jcenter()
+        google()
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.0.1'
-        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.4'
         classpath 'org.greenrobot:greendao-gradle-plugin:3.2.2'
     }
 }
@@ -12,6 +12,5 @@ buildscript {
 allprojects {
     repositories {
         jcenter()
-        google()
     }
 }

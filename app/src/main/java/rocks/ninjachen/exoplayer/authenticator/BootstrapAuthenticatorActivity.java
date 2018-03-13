@@ -21,6 +21,17 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.TextView.OnEditorActionListener;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.inject.Inject;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import retrofit.RetrofitError;
 import rocks.ninjachen.exoplayer.BootstrapApplication;
 import rocks.ninjachen.exoplayer.R;
 import rocks.ninjachen.exoplayer.R.id;
@@ -33,18 +44,6 @@ import rocks.ninjachen.exoplayer.events.UnAuthorizedErrorEvent;
 import rocks.ninjachen.exoplayer.ui.TextWatcherAdapter;
 import rocks.ninjachen.exoplayer.util.SafeAsyncTask;
 import rocks.ninjachen.exoplayer.util.Toaster;
-
-import org.greenrobot.eventbus.EventBus;
-import org.greenrobot.eventbus.Subscribe;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.inject.Inject;
-
-import butterknife.Bind;
-import butterknife.ButterKnife;
-import retrofit.RetrofitError;
 import timber.log.Timber;
 
 import static android.R.layout.simple_dropdown_item_1line;
@@ -88,9 +87,9 @@ public class BootstrapAuthenticatorActivity extends ActionBarAccountAuthenticato
     EventBus eventBus;
     @Inject BootstrapService bootstrapService;
 
-    @Bind(id.et_email) protected AutoCompleteTextView emailText;
-    @Bind(id.et_password) protected EditText passwordText;
-    @Bind(id.b_signin) protected Button signInButton;
+    @BindView(id.et_email) protected AutoCompleteTextView emailText;
+    @BindView(id.et_password) protected EditText passwordText;
+    @BindView(id.b_signin) protected Button signInButton;
 
     private final TextWatcher watcher = validationTextWatcher();
 
