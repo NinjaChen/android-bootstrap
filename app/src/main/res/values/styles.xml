@@ -3,7 +3,7 @@
 <resources>
 
 
-    <style name="BaseTheme" parent="Theme.AppCompat.Light.NoActionBar"/>
+    <style name="BaseTheme" parent="Theme.AppCompat.Light.DarkActionBar"/>
     <style name="AppTheme" parent="BaseTheme"></style>
     <style name="SignInEditText">
         <item name="android:layout_width">match_parent</item>

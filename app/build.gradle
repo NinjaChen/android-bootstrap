@@ -1,7 +1,7 @@
 project.ext {
     minSdkVersion = 18
     compileSdkVersion = 26
-    targetSdkVersion = 19 // less than 23 to avoid the runtime-permission check
+    targetSdkVersion = 27 // less than 23 to avoid the runtime-permission check
     buildToolsVersion = '26.0.2'
     supportLibraryVersion = '27.0.2'
 }
