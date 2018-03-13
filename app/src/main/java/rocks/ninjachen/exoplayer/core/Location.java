@@ -3,11 +3,7 @@ package rocks.ninjachen.exoplayer.core;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import com.baidu.mapapi.model.LatLng;
-import rocks.ninjachen.exoplayer.util.ZeonicUtils;
-
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 public class Location implements Serializable, Parcelable{
@@ -68,31 +64,31 @@ public class Location implements Serializable, Parcelable{
         dest.writeDouble(longitude);
     }
 
-
-    public LatLng toLatLng() {
-        return new LatLng(getLatitude(), getLongitude());
-    }
-
-    public static ArrayList<LatLng> toLatLngs(List<Location> locations) {
-        if(locations == null) return null;
-        ArrayList<LatLng> lls = new ArrayList<>();
-        for(Location location : locations){
-            lls.add(location.toLatLng());
-        }
-        return lls;
-    }
-
-    // utils
-    public static Location from(LatLng ll) {
-        if(ll == null) return null;
-        return new Location(ll.latitude, ll.longitude);
-    }
-    public static ArrayList<Location> from(List<LatLng> lls) {
-        if(ZeonicUtils.isEmpty(lls)) return null;
-        ArrayList<Location> locations = new ArrayList<>();
-        for(LatLng ll :lls){
-            locations.add(Location.from(ll));
-        }
-        return locations;
-    }
+//  Remove BaiduMap dependency
+//    public LatLng toLatLng() {
+//        return new LatLng(getLatitude(), getLongitude());
+//    }
+//
+//    public static ArrayList<LatLng> toLatLngs(List<Location> locations) {
+//        if(locations == null) return null;
+//        ArrayList<LatLng> lls = new ArrayList<>();
+//        for(Location location : locations){
+//            lls.add(location.toLatLng());
+//        }
+//        return lls;
+//    }
+//
+//    // utils
+//    public static Location from(LatLng ll) {
+//        if(ll == null) return null;
+//        return new Location(ll.latitude, ll.longitude);
+//    }
+//    public static ArrayList<Location> from(List<LatLng> lls) {
+//        if(ZeonicUtils.isEmpty(lls)) return null;
+//        ArrayList<Location> locations = new ArrayList<>();
+//        for(LatLng ll :lls){
+//            locations.add(Location.from(ll));
+//        }
+//        return locations;
+//    }
 }

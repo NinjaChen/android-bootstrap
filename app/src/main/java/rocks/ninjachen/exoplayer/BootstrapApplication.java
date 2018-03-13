@@ -4,11 +4,9 @@ package rocks.ninjachen.exoplayer;
 
 import android.app.Application;
 
-import com.baidu.mapapi.SDKInitializer;
 import com.crashlytics.android.Crashlytics;
 
 import io.fabric.sdk.android.Fabric;
-import rocks.ninjachen.exoplayer.model.LocationManager;
 
 /**
  * tzpay application
@@ -39,15 +37,8 @@ public abstract class BootstrapApplication extends Application {
 
         onAfterInjection();
 
-        //baidumap在使用SDK各组件之前初始化context信息，传入ApplicationContext
-        initBaiduSDK();
         // crashlistic
         initFabric();
-    }
-
-    private void initBaiduSDK() {
-        SDKInitializer.initialize(getApplicationContext());
-        LocationManager.getInstance().start();
     }
 
     private void initFabric() {

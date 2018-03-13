@@ -1,7 +1,5 @@
 package rocks.ninjachen.exoplayer.util;
 
-import com.baidu.mapapi.model.CoordUtil;
-import com.baidu.mapapi.model.LatLng;
 import rocks.ninjachen.exoplayer.core.Location;
 
 /**
@@ -136,57 +134,5 @@ public class CoordUtils {
         return false;
     }
 
-    public static double[] getRangeWithCenterAndRadius(double lat, double lng, int radius) {
-//        double latD = 0.009019;
-//        double lngD = 0.010523;
-//        int xDelta = 90;
-//        int yDelta = 90;
-        double latD = 0.0008;
-        double lngD = 0.0008;
-        LatLng center = new LatLng(lat, lng);
-
-        double distance;
-        for (int i = 0 ; i < 200000;i ++){
-            lat += latD;
-            distance = CoordUtil.getDistance(CoordUtil.ll2point(center), CoordUtil.ll2point(new LatLng(lat, lng)));
-            if(distance > radius)
-                break;
-        }
-        double latRight = lat;
-        //clear
-        lat = center.latitude;
-        lng = center.longitude;
-        for (int i = 0 ; i < 200000;i ++){
-            lat -= latD;
-            distance = CoordUtil.getDistance(CoordUtil.ll2point(center), CoordUtil.ll2point(new LatLng(lat, lng)));
-            if(distance > radius)
-                break;
-        }
-        double latLeft = lat;
-        //clear
-        lat = center.latitude;
-        lng = center.longitude;
-        for (int i = 0 ; i < 200000;i ++){
-            lng += lngD;
-            distance = CoordUtil.getDistance(CoordUtil.ll2point(center), CoordUtil.ll2point(new LatLng(lat, lng)));
-            if(distance > radius)
-                break;
-        }
-        double lngtop = lng;
-        //clear
-        lat = center.latitude;
-        lng = center.longitude;
-        for (int i = 0 ; i < 200000;i ++){
-            lng -= lngD;
-            distance = CoordUtil.getDistance(CoordUtil.ll2point(center), CoordUtil.ll2point(new LatLng(lat, lng)));
-            if(distance > radius)
-                break;
-        }
-        double lngbuttom = lng;
-        double[] result = new double[2];
-        result[0] = latRight - latLeft;
-        result[1] = lngtop- lngbuttom;
-        return result;
-    }
 }
 

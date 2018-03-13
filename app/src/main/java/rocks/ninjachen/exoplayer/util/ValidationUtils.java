@@ -3,17 +3,15 @@ package rocks.ninjachen.exoplayer.util;
 import android.support.annotation.Nullable;
 import android.util.Patterns;
 
-import com.baidu.mapapi.search.route.WalkingRouteLine;
-import rocks.ninjachen.exoplayer.BootstrapApplication;
-import rocks.ninjachen.exoplayer.R;
-import rocks.ninjachen.exoplayer.entity.Direction;
-
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.Hashtable;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import rocks.ninjachen.exoplayer.BootstrapApplication;
+import rocks.ninjachen.exoplayer.R;
 
 /**
  * Created by ninja on 7/13/16.
@@ -41,32 +39,7 @@ public class ValidationUtils {
 //                System.out.println(m.group());
 //        }
     }
-    // Find out  123米 in a instructions string
-    public static String distanceStringInString(WalkingRouteLine.WalkingStep step, Direction direction){
-        String str = step.getInstructions();
-//        String str = "阿萨德的飞士大夫1000米后阿斯顿发是";
-        String regex = "\\d*米";
-        Pattern p = Pattern.compile(regex);
-        Matcher m = p.matcher(str);
-        while(m.find()) {
-            if(!"".equals(m.group())){
-                String s = m.group();
-                if(direction ==Direction.LEFT){
-                    s += "左转";
-                    return s;
-                }else if(direction == Direction.RIGHT){
-                    s += "右转";
-                    return s;
-                }else if(direction == Direction.FORWARD){
-                    s += "后";
-                    return s;
-                }else {
-                    return s;
-                }
-            }
-        }
-        return null;
-    }
+
     /**
      * 验证日期字符串是否是YYYY-MM-DD格式
      *
