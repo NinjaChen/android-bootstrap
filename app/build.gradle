@@ -6,15 +6,13 @@ buildscript {
         mavenLocal()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.2'
-        classpath 'io.fabric.tools:gradle:1.20.1'
-        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.4'
+        classpath 'com.android.tools.build:gradle:3.0.1'
+        classpath 'io.fabric.tools:gradle:1.+'
     }
 }
 
 apply plugin: 'com.android.application'
 apply plugin: 'io.fabric'
-apply plugin: 'com.neenbedankt.android-apt'
 apply plugin: 'org.greenrobot.greendao'
 
 repositories {
@@ -48,7 +46,7 @@ def gitSha = 'git rev-parse --short HEAD'.execute([], project.rootDir).text.trim
 
 android {
     compileSdkVersion 23
-    buildToolsVersion '25.0.0'
+    buildToolsVersion '26.0.2'
 
     defaultConfig {
         minSdkVersion 18
@@ -121,14 +119,14 @@ android {
     }
     // auto output release apk to project path
     applicationVariants.all { variant ->
-        variant.outputs.each { output ->
+        variant.outputs.all { output ->
 //            def flavor = variant.productFlavors[0].name
             def buildType = variant.variantData.variantConfiguration.buildType.name
             if (buildType == 'release'){
                 def versionName = variant.versionName
                 def versionCode = variant.versionCode
                 def newApkName = "njc_${versionName}_${versionCode}_${buildType}.apk"
-                output.outputFile = new File("${rootDir}/${newApkName}")
+                outputFileName = new File("${rootDir}/${newApkName}")
             }
         }
     }	
@@ -141,7 +139,8 @@ dependencies {
     compile 'com.android.support:percent:23.0.1'
     compile 'com.google.code.gson:gson:2.3'
     // Dependency Injection
-    compile 'com.google.dagger:dagger:2.0'
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.4' //remove android apt plugin
+    compile 'com.google.dagger:dagger:2.4'
     // View Injection
     compile 'com.jakewharton:butterknife:7.0.1'
     // Logging
@@ -170,7 +169,7 @@ dependencies {
     // orm
     compile 'org.greenrobot:greendao:3.2.2'
     // Fabric/Crashlytics
-    compile('com.crashlytics.sdk.android:crashlytics:2.2.3@aar') {
+    compile('com.crashlytics.sdk.android:crashlytics:2.9.1@aar') {
         transitive = true
     }
     compile 'de.hdodenhof:circleimageview:2.1.0'
@@ -199,8 +198,6 @@ dependencies {
     // Set this dependency to build and run UI Automator tests
     androidTestCompile 'com.android.support.test.uiautomator:uiautomator-v18:2.1.2'
     androidTestCompile 'org.mockito:mockito-core:1.9.5'
-    apt 'com.google.dagger:dagger-compiler:2.0'
-    provided 'javax.annotation:jsr250-api:1.0'
     greendao {
         /**
          * 1, Nothing
