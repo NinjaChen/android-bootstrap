@@ -116,7 +116,7 @@ android {
             proguardFile '../proguard.cfg'
 //            signingConfig signingConfigs.release
             // zipAlign true // this is default for release
-            // testPackageName 'com.zeonic.ykt.tests'
+            // testPackageName 'com.xxx.yyy.tests'
             // testInstrumentationRunner 'android.test.InstrumentationTestRunner' // this is the default
         }
     }
