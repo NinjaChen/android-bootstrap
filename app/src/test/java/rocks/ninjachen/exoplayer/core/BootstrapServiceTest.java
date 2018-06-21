@@ -20,6 +20,9 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
+import rocks.ninjachen.hbridgek.core.BootstrapService;
+import rocks.ninjachen.hbridgek.core.UserAgentProvider;
+
 /**
  * Unit tests of {@link BootstrapService}
  */

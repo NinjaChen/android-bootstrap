@@ -10,6 +10,8 @@ import java.util.List;
 import org.junit.Ignore;
 import org.junit.Test;
 
+import rocks.ninjachen.hbridgek.core.BootstrapService;
+
 /**
  * Unit tests of client API
  */
